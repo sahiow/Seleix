@@ -6,7 +6,7 @@ EXPOSE 80
 
 USER root
 
-ENV uuid ea4909ef-7ca6-4b46-bf2e-6c07896ef338
+ENV uuid a160d374-aac6-4869-ad5e-17c14836b0b8
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
