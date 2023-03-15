@@ -8,11 +8,11 @@ unzip $nx.zip xray && rm -f $nx.zip
 wget -N https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
 wget -N https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
 chmod a+x xray && mv xray $xpid
-sed -i "s/uuid/$uuid/g" ./config.json
+sed -i "s/uuid/$uuid/g" ./config.yaml
 sed -i "s/uuid/$uuid/g" /etc/nginx/nginx.conf
 [ -n "${www}" ] && rm -rf /usr/share/nginx/* && wget -c -P /usr/share/nginx "https://github.com/yonggekkk/doprax-xray/raw/main/3w/html${www}.zip" && unzip -o "/usr/share/nginx/html${www}.zip" -d /usr/share/nginx/html
-cat config.json | base64 > config
-rm -f config.json
+cat config.yaml | base64 > config
+rm -f config.yaml
 
 # argo与加密方案出自fscarmen
 wget -N https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
@@ -125,4 +125,4 @@ EOF
  
 cat log
 nginx
-base64 -d config > config.json; ./$xpid -config=config.json
+base64 -d config > config.yaml; ./$xpid -config=config.yaml
